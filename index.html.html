@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Riwaya za Maimamu (a.s.) - App ya Kiislamu Kishia</title>
+<link rel="stylesheet" href="manifest.json">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Amiri&display=swap');
+  @font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/amiri/v27/J7aRnpd8CGxBHpUrtLMA7w.woff2) format('woff2');
+  unicode-range: U+0600-06FF, U+0750-077F, U+0870-088E, U+0890-0891, U+0897-08E1, U+08E3-08FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE70-FE74, U+FE76-FEFC, U+102E0-102FB, U+10E60-10E7E, U+10EC2-10EC4, U+10EFC-10EFF, U+1EE00-1EE03, U+1EE05-1EE1F, U+1EE21-1EE22, U+1EE24, U+1EE27, U+1EE29-1EE32, U+1EE34-1EE37, U+1EE39, U+1EE3B, U+1EE42, U+1EE47, U+1EE49, U+1EE4B, U+1EE4D-1EE4F, U+1EE51-1EE52, U+1EE54, U+1EE57, U+1EE59, U+1EE5B, U+1EE5D, U+1EE5F, U+1EE61-1EE62, U+1EE64, U+1EE67-1EE6A, U+1EE6C-1EE72, U+1EE74-1EE77, U+1EE79-1EE7C, U+1EE7E, U+1EE80-1EE89, U+1EE8B-1EE9B, U+1EEA1-1EEA3, U+1EEA5-1EEA9, U+1EEAB-1EEBB, U+1EEF0-1EEF1;
+}
+/* latin-ext */
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/amiri/v27/J7aRnpd8CGxBHpUgtLMA7w.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Amiri';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/amiri/v27/J7aRnpd8CGxBHpUutLM.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+  body {
+    margin: 0; padding: 20px;
+    font-family: 'Amiri', serif;
+    background: linear-gradient(135deg, #0b0a0a 0%, #102117 40%, #0b0a0a 100%);
+    color: #d4af37;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container {
+    background: rgba(3, 23, 15, 0.9);
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    max-width: 700px;
+    width: 100%;
+    padding: 20px 30px;
+    box-shadow: 0 0 20px #d4af37aa;
+    text-align: center;
+  }
+  h1.bismillah {
+    font-size: 2.5rem;
+    color: #66ff99;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .riwaya-arabic {
+    font-size: 1.8rem;
+    color: #a2d18f;
+    direction: rtl;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  .riwaya-swahili {
+    font-size: 1.2rem;
+    color: #d4af37;
+    margin-bottom: 10px;
+  }
+  .riwaya-maana {
+    font-size: 1rem;
+    color: #d4af37cc;
+    margin-bottom: 10px;
+  }
+  .riwaya-citation {
+    font-style: italic;
+    color: #aaa74f;
+    margin-bottom: 15px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="bismillah">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</h1>
+    <div id="riwaya-arabic" class="riwaya-arabic"></div>
+    <div id="riwaya-swahili" class="riwaya-swahili"></div>
+    <div id="riwaya-maana" class="riwaya-maana"></div>
+    <div id="riwaya-citation" class="riwaya-citation"></div>
+  </div>
+
+<script>
+const riwayaList = [
+  {
+    arabic: "عَنِ الإمامِ الرِّضا عليه السلام: «الصَّبرُ مفتاحُ الفَرَجِ»",
+    swahili: "Imam Ridha (a.s) alisema: 'Subira ni ufunguo wa faraja.'",
+    maana: "Subira ni njia kuu ya kupata utulivu na mafanikio katika maisha.",
+    citation: "Kitabu: Bihar al-Anwar, Juzuu 70, Ukurasa 123"
+  },
+  {
+    arabic: "قال الإمام الصادق عليه السلام: «العلمُ نورٌ والجهلُ ظلامٌ»",
+    swahili: "Imam Sadiq (a.s) alisema: 'Elimu ni nuru na ujinga ni giza.'",
+    maana: "Kutafuta maarifa kunatuongoza kutoka kwenye giza la ujinga hadi mwanga wa hekima.",
+    citation: "Kitabu: Al-Kafi, Juzuu 1, Ukurasa 20"
+  },
+  {
+    arabic: "قال الإمام علي عليه السلام: «العدل أساس الملك»",
+    swahili: "Imam Ali (a.s) alisema: 'Haki ni msingi wa uongozi.'",
+    maana: "Hakuna utawala wa kudumu usiokuwa na haki kama msingi wake.",
+    citation: "Kitabu: Nahj al-Balagha, Khutuba 53"
+  },
+  {
+    arabic: "قال الإمام الحسين عليه السلام: «لا خير في الدنيا دون دين»",
+    swahili: "Imam Hussein (a.s) alisema: 'Hakuna heri duniani bila dini.'",
+    maana: "Maisha bila dini hayana maana wala mwelekeo wa kweli.",
+    citation: "Kitabu: Mafatih al-Jinan, Dua 14"
+  },
+  {
+    arabic: "قال الإمام جعفر الصادق عليه السلام: «الذكرى تنير القلوب»",
+    swahili: "Imam Ja'far as-Sadiq (a.s) alisema: 'Kumbukumbu hunuanua mioyo.'",
+    maana: "Kumbukumbu ya Mwenyezi Mungu huleta mwanga na amani moyoni.",
+    citation: "Kitabu: Al-Kafi, Juzuu 2, Ukurasa 78"
+  },
+  {
+    arabic: "قال الإمام علي عليه السلام: «من نصب نفسه للناس إماماً فليبدأ بتعليم نفسه قبل تعليم غيره»",
+    swahili: "Imam Ali (a.s) alisema: 'Yeye aliyechukua nafasi ya uongozi kwa watu aanze kujifunza mwenyewe kabla ya kufundisha wengine.'",
+    maana: "Uongozi mzuri huanza na kujitawala binafsi kabla ya kuongoza wengine.",
+    citation: "Kitabu: Nahj al-Balagha, Hikima 326"
+  },
+  {
+    arabic: "قال الإمام المهدي عليه السلام: «الصلاة عماد الدين»",
+    swahili: "Imam Mahdi (a.s) alisema: 'Sala ni nguzo ya dini.'",
+    maana: "Sala ni msingi wa imani na utawala wa roho katika maisha ya Muislamu.",
+    citation: "Hadithi: Kitabu Al-Ghayba"
+  },
+  {
+    arabic: "قال الإمام علي عليه السلام: «طلب العلم فريضة على كل مسلم»",
+    swahili: "Imam Ali (a.s) alisema: 'Kutafuta maarifa ni faradhi kwa kila Muislamu.'",
+    maana: "Maarifa ni wajibu kwa kila mtu anayetaka kumjua Mungu na maisha.",
+    citation: "Kitabu: Nahj al-Balagha, Hikima 209"
+  },
+  {
+    arabic: "قال الإمام الصادق عليه السلام: «المؤمن مرآة المؤمن»",
+    swahili: "Imam Sadiq (a.s) alisema: 'Mwenye imani ni kioo cha mwenzake mwenye imani.'",
+    maana: "Muislamu anapaswa kusaidia mwenzake katika kumsaidia kuimarika kiroho.",
+    citation: "Kitabu: Al-Kafi, Juzuu 2, Ukurasa 45"
+  },
+  {
+    arabic: "قال الإمام الحسن عليه السلام: «الحق نور والباطل ظلام»",
+    swahili: "Imam Hasan (a.s) alisema: 'Haki ni nuru na uongo ni giza.'",
+    maana: "Kufuata haki kunatuweka katika mwanga wa ukweli wa Mungu.",
+    citation: "Kitabu: Bihar al-Anwar, Juzuu 44"
+  }
+];
+
+let currentIndex = 0;
+function showRiwaya(index) {
+  const riwaya = riwayaList[index];
+  document.getElementById("riwaya-arabic").textContent = riwaya.arabic;
+  document.getElementById("riwaya-swahili").textContent = riwaya.swahili;
+  document.getElementById("riwaya-maana").textContent = riwaya.maana;
+  document.getElementById("riwaya-citation").textContent = riwaya.citation;
+}
+
+showRiwaya(currentIndex);
+
+setInterval(() => {
+  currentIndex = (currentIndex + 1) % riwayaList.length;
+  showRiwaya(currentIndex);
+}, 30000); // Badilisha kila 30 sekunde
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('serviceWorkwe.js')
+  .then(() => console.log("Service Worker registered!"));
+}
+</script>
+</body>
+</html>
+
